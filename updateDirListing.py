@@ -89,7 +89,6 @@ def main():
 			delete_count = 0
 			for fn in new:
 				if fn in fhashes:
-					print(fhashes[fn])
 					fdb.insertFileHashes(fn, fhashes[fn])
 					logging.debug("\033[34;1m%s\033[0m", fn)
 					for field, h in zip("sha1 md5 crc32 bc cts".split(), fhashes[fn]):
@@ -97,7 +96,6 @@ def main():
 					insert_count += 1
 			for fn in modified:
 				if fn in fhashes:
-					print(fhashes[fn])
 					fdb.updateFileHashes(fn, fhashes[fn])
 					logging.debug("\033[1m%s\033[0m", fn)
 					for field, h in zip("sha1 md5 crc32 bc cts".split(), fhashes[fn]):
