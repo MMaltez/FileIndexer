@@ -60,7 +60,7 @@ def printProgressBar(count, total, start, now
 	): #pylint: disable-msg=too-many-arguments
 	"""Prints progressbar corresponding to the state given in arguments."""
 	completion = count / total if total != 0 else 0
-	speed = count / (now - start)
+	speed = count / (now - start) if (now - start) != 0 else 0
 	eta = (1 - total / count) * (start - now) if count != 0 else 0.0
 	eta = eta if eta > 0.0 else 0.0
 	progressbar = (fgchar*int(10*completion)).ljust(10, bgchar)
